@@ -3,10 +3,18 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/Admin/AndroidStudioProjects/YouTubeApi/app/src/main/res/drawable/il_no_inet.xml" value="0.26614583333333336" />
+        <entry key="..\:/Users/Admin/AndroidStudioProjects/YouTubeApi/app/src/main/res/drawable/not_found.xml" value="0.26614583333333336" />
         <entry key="..\:/Users/Admin/AndroidStudioProjects/YouTubeApi/app/src/main/res/layout/activity_main.xml" value="0.264" />
         <entry key="..\:/Users/Admin/AndroidStudioProjects/YouTubeApi/app/src/main/res/layout/activity_main2.xml" value="0.1308876811594203" />
         <entry key="..\:/Users/Admin/AndroidStudioProjects/YouTubeApi/app/src/main/res/layout/item_love_rv.xml" value="0.14492753623188406" />
-        <entry key="..\:/Users/Admin/AndroidStudioProjects/YouTubeApi/app/src/main/res/layout/item_playlists_rv.xml" value="0.1" />
+        <entry key="..\:/Users/Admin/AndroidStudioProjects/YouTubeApi/app/src/main/res/layout/item_playlist_video.xml" value="0.21920289855072464" />
+        <entry key="..\:/Users/Admin/AndroidStudioProjects/YouTubeApi/app/src/main/res/layout/item_playlist_video_rv.xml" value="0.21920289855072464" />
+        <entry key="..\:/Users/Admin/AndroidStudioProjects/YouTubeApi/app/src/main/res/layout/item_playlists_rv.xml" value="0.264" />
+        <entry key="..\:/Users/Admin/AndroidStudioProjects/YouTubeApi/app/src/main/res/layout/no_inet_connection.xml" value="0.223731884057971" />
+        <entry key="..\:/Users/Admin/AndroidStudioProjects/YouTubeApi/app/src/main/res/layout/playlist_activity.xml" value="0.1890625" />
+        <entry key="..\:/Users/Admin/AndroidStudioProjects/YouTubeApi/app/src/main/res/layout/playlist_video.xml" value="0.223731884057971" />
+        <entry key="..\:/Users/Admin/AndroidStudioProjects/YouTubeApi/app/src/main/res/layout/playlist_video_activity.xml" value="0.21920289855072464" />
       </map>
     </option>
   </component>

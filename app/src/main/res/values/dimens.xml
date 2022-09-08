@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Margins -->
+    <dimen name="small_margin">4dp</dimen>
+    <dimen name="small_margin2x">8dp</dimen>
+    <dimen name="small_margin_6">6dp</dimen>
+    <dimen name="element_margin">8dp</dimen>
+    <dimen name="medium_margin">16dp</dimen>
+    <dimen name="medium_marginSp">16sp</dimen>
+    <dimen name="page_margin_half">10dp</dimen>
+    <dimen name="page_margin">20dp</dimen>
+    <dimen name="page_margin_25">25dp</dimen>
+    <dimen name="big_margin">30dp</dimen>
+    <dimen name="big_margin_35">34dp</dimen>
+    <dimen name="page_margin_x2">40dp</dimen>
+    <dimen name="page_margin_x3">60dp</dimen>
+    <dimen name="page_margin_x4">64dp</dimen>
+    <dimen name="page_margin_x5">100dp</dimen>
+    <dimen name="floating_button_margin">80dp</dimen>
+    <dimen name="margin_content_block">40dp</dimen>
+    <dimen name="big_margin22">22dp</dimen>
+    <dimen name="half_page2x">20sp</dimen>
+    <dimen name="twenty_four_dp">24dp</dimen>
+    <dimen name="twenty_four_sp">24sp</dimen>
+</resources>
