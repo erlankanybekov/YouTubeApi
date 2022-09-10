@@ -14,4 +14,8 @@
     <string name="todo">TODO</string>
     <string name="back">Back</string>
     <string name="playlistvid">Playlist</string>
+    <string name="playlist_toolbar">playlist_toolbar</string>
+    <string name="cancel">cancel</string>
+    <string name="download">download</string>
+    <string name="downloadVid">Download</string>
 </resources>

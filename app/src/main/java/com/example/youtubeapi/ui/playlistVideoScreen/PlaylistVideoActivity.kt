@@ -1,6 +1,7 @@
 package com.example.youtubeapi.ui.playlistVideoScreen
 
-import android.annotation.SuppressLint
+import android.content.Intent
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.widget.Toast
@@ -8,9 +9,10 @@ import androidx.core.view.isVisible
 import androidx.lifecycle.ViewModelProvider
 import com.example.youtubeapi.core.network.result.Status
 import com.example.youtubeapi.core.ui.BaseActivity
-import com.example.youtubeapi.data.models.Item
+import com.example.youtubeapi.data.remote.models.Item
 import com.example.youtubeapi.databinding.PlaylistVideoActivityBinding
 import com.example.youtubeapi.ui.playlistScreen.PlaylistActivity
+import com.example.youtubeapi.ui.videoPlayer.VideoPlayerActivity
 import com.example.youtubeapi.utils.CheckConnectNetwork
 
 class PlaylistVideoActivity : BaseActivity<PlaylistVideoViewModel, PlaylistVideoActivityBinding>() {
@@ -19,7 +21,7 @@ class PlaylistVideoActivity : BaseActivity<PlaylistVideoViewModel, PlaylistVideo
         get() = ViewModelProvider(this)[PlaylistVideoViewModel::class.java]
 
     override fun inflateViewBinding(inflater: LayoutInflater): PlaylistVideoActivityBinding {
-        return PlaylistVideoActivityBinding.inflate(layoutInflater)
+        return PlaylistVideoActivityBinding.inflate(inflater)
     }
 
     override fun initView() {
@@ -28,36 +30,53 @@ class PlaylistVideoActivity : BaseActivity<PlaylistVideoViewModel, PlaylistVideo
         binding.playlistTitle.text = intent.getStringExtra(PlaylistActivity.SECOND_KEY).toString()
         binding.playlistDescription.text = intent.getStringExtra(PlaylistActivity.THIRD_KEY).toString()
 
+        initVM()
     }
 
     override fun initViewModel() {
         super.initViewModel()
-        initVM()
+
 
     }
-    @SuppressLint("SetTextI18n")
+
     private fun initVM() {
         playlistId?.let {
             viewModel.getPlaylistItems(it).observe(this) {
                 when(it.status) {
                     Status.SUCCESS -> {
-                        it.data?.let { it1 -> initRecyclerView(it1.items) }
-                            binding.seriesTv.text = it.data?.items?.size.toString() + " video series"
+                        if (it.data != null) {
+
+                            initRecyclerView(it.data.items as ArrayList<Item>)
+                            binding.progressBar.isVisible = false
+                            binding.seriesTv.text = it.data.items.size.toString() + " video series"
+                        } else {
+                            Log.e("Error1", "error 1")
                         }
-                    Status.ERROR ->{
-                        Toast.makeText(this,it.message,Toast.LENGTH_SHORT).show()
+                    }
+                    Status.ERROR -> {
+                        Log.e("Error2", "error 2")
+                        Toast.makeText(this, "Ошибка", Toast.LENGTH_SHORT).show()
+                    }
+                    Status.LOADING -> {
                         binding.progressBar.isVisible = true
-                    }
-                    Status.LOADING ->{
-                        binding.progressBar.isVisible = false
-                    }
                     }
                 }
             }
         }
-    private fun initRecyclerView(playlistsList: List<Item>) {
-        binding.videosRecyclerView.adapter = PlaylistsVideoAdapter(playlistsList as ArrayList<Item>)
+    }
+    private fun initRecyclerView(playlistsList: ArrayList<Item>?) {
+        binding.videosRecyclerView.adapter = PlaylistsVideoAdapter(playlistsList!!, this::onItemClick)
+        Log.e("ololo",playlistId.toString())
         binding.videosRecyclerView.visibility = View.VISIBLE
+    }
+    private fun onItemClick(videoId: String?, videoTitle: String?, videoDesc: String?) {
+        Intent(this, VideoPlayerActivity::class.java).apply {
+            putExtra(idPdaVa, videoId)
+            putExtra(titlePdaVa, videoTitle)
+            putExtra(descPdaVa, videoDesc)
+
+            startActivity(this)
+        }
     }
     override fun checkInternet() {
         super.checkInternet()
@@ -70,6 +89,14 @@ class PlaylistVideoActivity : BaseActivity<PlaylistVideoViewModel, PlaylistVideo
         binding.tvBack.setOnClickListener{
             onBackPressed()
         }
+        binding.fab.setOnClickListener {
+            onItemClick(idPdaVa, titlePdaVa, descPdaVa)
+        }
+    }
+    companion object {
+        const val idPdaVa = "idPdaVa"
+        const val titlePdaVa = "titlePdaVa"
+        const val descPdaVa = "descPdaVa"
     }
 
 

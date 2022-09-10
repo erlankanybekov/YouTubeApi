@@ -6,8 +6,8 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.youtubeapi.R
 import com.example.youtubeapi.databinding.ItemPlaylistsRvBinding
-import com.example.youtubeapi.extensions.Glide
-import com.example.youtubeapi.data.models.Item
+import com.example.youtubeapi.data.remote.models.Item
+import com.example.youtubeapi.extensions.loadImage
 
 import kotlin.collections.ArrayList
 
@@ -34,12 +34,12 @@ class PlaylistAdapter(
     inner class PlayListsViewHolder(var binding: ItemPlaylistsRvBinding) :
         RecyclerView.ViewHolder(binding.root) {
         fun bind(item: Item) {
-            binding.ivVideos.Glide(item.snippet.thumbnails.default.url)
+            binding.ivVideos.loadImage(item.snippet.thumbnails.default.url)
             binding.tvName.text = item.snippet.title
             binding.tvDesc.text =String.format("${item.contentDetails.itemCount} ${itemView.context.getString(
                 R.string.Playlist_video_series)}")
             binding.root.setOnClickListener{
-                onItemClick(item.snippet.title, item.snippet.description, item.id)
+                onItemClick(item.id,item.snippet.title, item.snippet.description)
             }
         }
     }

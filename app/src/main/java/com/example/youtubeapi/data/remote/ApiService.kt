@@ -1,7 +1,7 @@
-package com.example.youtubeapi.data
+package com.example.youtubeapi.data.remote
 
-import com.example.youtubeapi.data.models.Item
-import com.example.youtubeapi.data.models.Playlists
+import com.example.youtubeapi.data.remote.models.Item
+import com.example.youtubeapi.data.remote.models.Playlists
 import retrofit2.Call
 import retrofit2.http.GET
 import retrofit2.http.Query

@@ -9,6 +9,7 @@
     <dimen name="medium_marginSp">16sp</dimen>
     <dimen name="page_margin_half">10dp</dimen>
     <dimen name="page_margin">20dp</dimen>
+    <dimen name="page_marginSp">20dp</dimen>
     <dimen name="page_margin_25">25dp</dimen>
     <dimen name="big_margin">30dp</dimen>
     <dimen name="big_margin_35">34dp</dimen>

@@ -1,12 +1,17 @@
-package com.example.youtubeapi.data.models
+package com.example.youtubeapi.data.remote.models
 
 import com.google.gson.annotations.SerializedName
 
 data class Playlists(
+    @SerializedName("etag")
     val etag: String,
+    @SerializedName("items")
     val items: List<Item>,
+    @SerializedName("kind")
     val kind: String,
+    @SerializedName("nextPageToken")
     val nextPageToken: String,
+    @SerializedName("pageInfo")
     val pageInfo: PageInfo
 )
 data class Item(
@@ -100,7 +105,9 @@ data class Thumbnails (
     val standard: Standard
 )
 data class PageInfo(
+    @SerializedName("resultsPerPage")
     val resultsPerPage: Int,
+    @SerializedName("totalResults")
     val totalResults: Int
 )
 data class Localized(

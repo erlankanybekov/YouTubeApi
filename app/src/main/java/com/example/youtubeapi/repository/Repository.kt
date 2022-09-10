@@ -3,11 +3,11 @@ package com.example.youtubeapi.repository
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.example.youtubeapi.BuildConfig
-import com.example.youtubeapi.data.models.Playlists
-import com.example.youtubeapi.data.ApiService
+import com.example.youtubeapi.data.remote.models.Playlists
+import com.example.youtubeapi.data.remote.ApiService
 import com.example.youtubeapi.core.network.RetrofitClient
 import com.example.youtubeapi.core.network.result.Resource
-import com.example.youtubeapi.data.models.Item
+import com.example.youtubeapi.data.remote.models.Item
 import com.example.youtubeapi.utils.Const
 import retrofit2.Call
 import retrofit2.Callback

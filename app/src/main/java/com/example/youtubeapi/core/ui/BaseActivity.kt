@@ -18,8 +18,8 @@ abstract class BaseActivity<VM: BaseViewModel,VB: ViewBinding> : AppCompatActivi
         setContentView(binding.root)
 
         checkInternet()
-        initViewModel()
         initView()
+        initViewModel()
         initListener()
 
     }
