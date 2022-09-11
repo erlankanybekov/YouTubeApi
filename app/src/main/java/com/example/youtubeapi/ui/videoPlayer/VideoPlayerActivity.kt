@@ -25,7 +25,6 @@ class VideoPlayerActivity : BaseActivity<VideoPlayerViewModel,ActivityVideoPlaye
     private var videoId: String? = null
     private lateinit var player: ExoPlayer
     private lateinit var playerView: PlayerView
-    private val prefs: Prefs by lazy { Prefs(this) }
 
     override val viewModel: VideoPlayerViewModel
         get() =  ViewModelProvider(this)[VideoPlayerViewModel::class.java]
@@ -51,7 +50,7 @@ class VideoPlayerActivity : BaseActivity<VideoPlayerViewModel,ActivityVideoPlaye
         player.addListener(this)
     }
     private fun addMp4Files(){
-        val mediaItem = MediaItem.fromUri("https://rr2---sn-4g5lzned.googlevideo.com/videoplayback?expire=1662838599&ei=55IcY4f5GI2ykAPguK0w&ip=207.204.229.60&id=o-AAQPfugA5VHUjiivwEDNQNUKT5nHujyEER2CobO-HBzq&itag=18&source=youtube&requiressl=yes&spc=lT-KhnkjiZQwsZOjOTMNNx-Dig8rJlg&vprv=1&mime=video%2Fmp4&ns=u6Wt_guY7h5xaM0PhRlMSdkH&cnr=14&ratebypass=yes&dur=142.059&lmt=1658775559202917&fexp=24001373,24007246&c=WEB&rbqsm=fr&txp=1318224&n=PkjNQrthSsUYmA&sparams=expire%2Cei%2Cip%2Cid%2Citag%2Csource%2Crequiressl%2Cspc%2Cvprv%2Cmime%2Cns%2Ccnr%2Cratebypass%2Cdur%2Clmt&sig=AOq0QJ8wRAIgHVFf_rO30PAt0cvTkg6m2_z8r8fmjO4Hkk8dKeHtYYwCIB2uMRL25bRJa312q6awGQF4AAs0H8vN98KHOuS_S7LY&rm=sn-p5qees7z&req_id=7ee5a21c757fa3ee&cm2rm=sn-hxb5apox-4g0s7e,sn-n8vrdes&ipbypass=yes&redirect_counter=3&cms_redirect=yes&cmsv=e&mh=72&mip=158.181.181.183&mm=34&mn=sn-4g5lzned&ms=ltu&mt=1662816759&mv=m&mvi=2&pl=20&lsparams=ipbypass,mh,mip,mm,mn,ms,mv,mvi,pl&lsig=AG3C_xAwRAIgS1cInPITJdpAr56TcPzIlQvpdJnytchhRwfj7N6KbxYCIGRiLfTZpI5XZR0Ga0nbwtsnXo8M_Esj_zhG9XB99vWg")
+        val mediaItem = MediaItem.fromUri("https://rr8---sn-n8v7znzl.googlevideo.com/videoplayback?expire=1662899146&ei=an8dY6WKIJHFyQWvpbDYBg&ip=194.32.122.53&id=o-ABJjcOHSq0uZg1toa9Qs3a5z8XFBrGgIyptxrSjzFg2P&itag=18&source=youtube&requiressl=yes&spc=lT-Khqnwj_8v-3FywwwFjFpPH6jnTUA&vprv=1&mime=video%2Fmp4&ns=j647tl4lxiSE1PH6dCQ6_eAH&gir=yes&clen=15912045&ratebypass=yes&dur=273.832&lmt=1661996688603978&fexp=24001373,24007246&c=WEB&rbqsm=fr&txp=5538434&n=DGuZ6Am88bybyg&sparams=expire%2Cei%2Cip%2Cid%2Citag%2Csource%2Crequiressl%2Cspc%2Cvprv%2Cmime%2Cns%2Cgir%2Cclen%2Cratebypass%2Cdur%2Clmt&sig=AOq0QJ8wRQIhAOHQUZ_NdbSJhTul4CKjxMQ2zmLcKUKKa3VUJeUBNxCsAiBuvrwrjkkqSRrzQRHdzqqGXZaDgUnPlh44o4z6W5qV4g%3D%3D&rm=sn-cpux-8ovs7e,sn-f5fes7l&req_id=bc108e4fde33a3ee&redirect_counter=2&cms_redirect=yes&cmsv=e&ipbypass=yes&mh=au&mip=158.181.181.183&mm=29&mn=sn-n8v7znzl&ms=rdu&mt=1662877497&mv=m&mvi=8&pl=20&lsparams=ipbypass,mh,mip,mm,mn,ms,mv,mvi,pl&lsig=AG3C_xAwRQIhAOsltL0z57c1FSLTI3AZ1D-RssiSkh7bGt0BXTKOtoDmAiADHLV4PGMRaIrB7a0Svzq9XpWdKywaMJISKe7MM66gUg%3D%3D")
         player.addMediaItem(mediaItem)
         player.prepare()
     }
@@ -65,6 +64,12 @@ class VideoPlayerActivity : BaseActivity<VideoPlayerViewModel,ActivityVideoPlaye
             }
             Player.STATE_READY->{
                 binding.videoProgressBar.visibility = View.GONE
+            }
+            Player.STATE_ENDED -> {
+
+            }
+            Player.STATE_IDLE -> {
+
             }
         }
     }
