@@ -1,15 +1,11 @@
 package com.example.youtubeapi.ui.videoPlayer
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import androidx.core.view.isVisible
 import androidx.lifecycle.ViewModelProvider
-import com.example.youtubeapi.BuildConfig
-import com.example.youtubeapi.R
 import com.example.youtubeapi.core.ui.BaseActivity
-import com.example.youtubeapi.data.local.Prefs
 import com.example.youtubeapi.databinding.ActivityVideoPlayerBinding
 import com.example.youtubeapi.ui.playlistVideoScreen.PlaylistVideoActivity
 import com.example.youtubeapi.utils.CheckConnectNetwork
@@ -17,7 +13,6 @@ import com.google.android.exoplayer2.ExoPlayer
 import com.google.android.exoplayer2.MediaItem
 import com.google.android.exoplayer2.MediaMetadata
 import com.google.android.exoplayer2.Player
-import com.google.android.exoplayer2.source.ProgressiveMediaSource
 import com.google.android.exoplayer2.ui.PlayerView
 
 class VideoPlayerActivity : BaseActivity<VideoPlayerViewModel,ActivityVideoPlayerBinding>(),Player.Listener {
@@ -90,7 +85,7 @@ class VideoPlayerActivity : BaseActivity<VideoPlayerViewModel,ActivityVideoPlaye
     private fun getDataIntent() {
         videoId = intent.getStringExtra(PlaylistVideoActivity.idPdaVa).toString()
         binding.videoTitle.text = intent.getStringExtra(PlaylistVideoActivity.titlePdaVa).toString()
-        binding.videoDesc.text = intent.getStringExtra(PlaylistVideoActivity.descPdaVa)?.toString()
+        binding.videoDesc.text = intent.getStringExtra(PlaylistVideoActivity.descPdaVa)
     }
 
 
@@ -99,10 +94,6 @@ class VideoPlayerActivity : BaseActivity<VideoPlayerViewModel,ActivityVideoPlaye
         player.release()
     }
 
-    override fun onBackPressed() {
-        super.onBackPressed()
-
-    }
     override fun initListener() {
         binding.tvBack.setOnClickListener{
             onBackPressed()
