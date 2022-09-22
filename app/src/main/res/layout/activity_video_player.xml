@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.videoPlayer.VideoPlayerActivity">
+    tools:context=".ui.video_player.VideoPlayerActivity">
 
     <include
         android:id="@+id/no_inet"
@@ -27,7 +27,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <androidx.appcompat.widget.Toolbar
+        <Toolbar
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize">
@@ -41,26 +41,25 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/back"
-                    android:textColor="#DD2C00"
+                    android:textColor="#FF0000"
                     android:textSize="17sp"
-                    app:drawableStartCompat="@drawable/ic_baseline_arrow_back_yt"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:drawableStartCompat="@drawable/ic_baseline_arrow_back_yt" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
             <TextView
-                android:textSize="@dimen/page_marginSp"
+                android:textSize="@dimen/twenty_four_sp"
                 android:textColor="#FF0000"
                 android:layout_gravity="center_horizontal"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/playlistvid"
-                tools:ignore="SpUsage" />
+                android:text="@string/playlistvid"/>
 
-        </androidx.appcompat.widget.Toolbar>
+        </Toolbar>
 
         <FrameLayout
             android:layout_width="match_parent"
@@ -79,10 +78,6 @@
                     android:indeterminateTint="@android:color/holo_red_light"
                     android:layout_gravity="center" />
             </com.google.android.exoplayer2.ui.PlayerView>
-
-
-
-
         </FrameLayout>
 
         <androidx.core.widget.NestedScrollView
@@ -108,6 +103,12 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent">
 
+                    <com.google.android.material.button.MaterialButton
+
+                        android:id="@+id/cancel_downloading"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/cancel"/>
 
                 </LinearLayout>
 
@@ -120,22 +121,22 @@
                         android:id="@+id/video_title"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:fontFamily="@font/fjalla_one"
                         android:text="@string/title_example"
-                        android:textSize="22sp"
-                        android:fontFamily="@font/bai_jamjuree_bold"
-                        app:layout_constraintEnd_toEndOf="parent"
+                        android:textSize="@dimen/twenty_four_sp"
+                        app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
 
                     <com.google.android.material.button.MaterialButton
                         android:id="@+id/downloadButton"
                         android:layout_width="141dp"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="@dimen/small_margin2x"
                         android:backgroundTint="@color/white"
                         android:text="@string/downloadVid"
+                        android:layout_marginTop="@dimen/small_margin"
                         android:textAllCaps="false"
-                        android:textColor="#DD2C00"
-                        app:cornerRadius="@dimen/small_margin2x"
+                        android:textColor="#FF0000"
+                        app:cornerRadius="@dimen/small_margin"
                         app:icon="@drawable/ic_download_for_offline"
                         app:iconGravity="end"
                         app:iconTint="#FF0000"
@@ -148,10 +149,10 @@
                         android:id="@+id/video_desc"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="@dimen/medium_margin"
-
+                        android:layout_marginTop="@dimen/page_margin"
                         android:text="@string/playlist_description_example"
                         android:textSize="@dimen/medium_marginSp"
+                        android:fontFamily="@font/fjalla_one"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintTop_toBottomOf="@id/downloadButton" />
 

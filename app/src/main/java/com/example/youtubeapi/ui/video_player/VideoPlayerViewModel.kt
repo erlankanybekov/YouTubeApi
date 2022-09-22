@@ -1,4 +1,4 @@
-package com.example.youtubeapi.ui.videoPlayer
+package com.example.youtubeapi.ui.video_player
 
 
 import com.example.youtubeapi.core.ui.BaseViewModel

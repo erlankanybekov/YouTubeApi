@@ -4,6 +4,8 @@
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
 
     <application
         android:allowBackup="true"
@@ -14,17 +16,20 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.YouTubeApi"
         android:usesCleartextTraffic="true">
+
         <activity
-            android:name=".ui.videoPlayer.VideoPlayerActivity"
+            android:name=".ui.video_player.VideoPlayerActivity"
+
             android:exported="false" />
         <activity
-            android:name=".ui.playlistVideoScreen.PlaylistVideoActivity"
+            android:name=".ui.playlist_video_screen.PlaylistVideoActivity"
             android:exported="false" />
         <activity
-            android:name=".ui.playlistScreen.PlaylistActivity"
+            android:name=".ui.playlist_screen.PlaylistActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+                <action android:name="android.support.multidex.MultiDexApplication"/>
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>

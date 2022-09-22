@@ -48,7 +48,9 @@ data class Snippet (
 )
 data class ContentDetails(
     @SerializedName("itemCount")
-    val itemCount: Int
+    val itemCount: Int,
+    @SerializedName("videoId")
+    var videoId: String
 )
 
 data class Default (

@@ -18,4 +18,5 @@
     <string name="cancel">cancel</string>
     <string name="download">download</string>
     <string name="downloadVid">Download</string>
+    <string name="select_video_quality">select_video_quality</string>
 </resources>

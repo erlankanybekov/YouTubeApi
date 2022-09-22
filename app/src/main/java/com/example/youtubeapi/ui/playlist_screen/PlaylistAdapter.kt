@@ -1,4 +1,4 @@
-package com.example.youtubeapi.ui.playlistScreen
+package com.example.youtubeapi.ui.playlist_screen
 
 
 import android.view.LayoutInflater
@@ -7,7 +7,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.youtubeapi.R
 import com.example.youtubeapi.databinding.ItemPlaylistsRvBinding
 import com.example.youtubeapi.data.remote.models.Item
-import com.example.youtubeapi.extensions.loadImage
+import com.example.youtubeapi.core.extensions.loadImage
 
 import kotlin.collections.ArrayList
 

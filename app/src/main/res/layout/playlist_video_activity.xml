@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.playlistVideoScreen.PlaylistVideoActivity">
+    tools:context=".ui.playlist_video_screen.PlaylistVideoActivity">
 
     <include
         android:id="@+id/include_no_inet"

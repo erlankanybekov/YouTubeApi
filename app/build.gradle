@@ -1,6 +1,7 @@
 plugins {
     id 'com.android.application'
     id 'kotlin-android'
+    id 'kotlin-android-extensions'
 }
 
 android {
@@ -12,9 +13,10 @@ android {
         targetSdk 32
         versionCode 1
         versionName "1.0"
+        multiDexEnabled true
 
+        buildConfigField "String", "YOUTUBE_BASE", "\"http://youtube.com/watch?v=\""
         buildConfigField "String","BASE_URL","\"https://www.googleapis.com/youtube/v3/\""
-        buildConfigField "String", "YOUTUBE_BASE", "\"https://www.youtube.com/watch?v=\""
         buildConfigField "String","API_KEY","\"AIzaSyA9L2JkTMF2uA9pxXOaju8FYxox5NedKJ4\""
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -64,10 +66,16 @@ dependencies {
 
     //Exo player
     implementation 'com.google.android.exoplayer:exoplayer:2.18.1'
-
+//Koin
+    def koin_version = "2.2.3"
+    implementation "io.insert-koin:koin-android:$koin_version"
+    implementation "io.insert-koin:koin-androidx-scope:$koin_version"
+    implementation "io.insert-koin:koin-androidx-viewmodel:$koin_version"
+    implementation "io.insert-koin:koin-androidx-fragment:$koin_version"
 
     //Youtube
+    implementation 'com.github.HaarigerHarald:android-youtubeExtractor:2.1.0'
 
-
-
+//multiDex
+    implementation 'androidx.multidex:multidex:2.0.1'
 }

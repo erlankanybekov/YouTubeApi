@@ -1,4 +1,4 @@
-package com.example.youtubeapi.ui.playlistVideoScreen
+package com.example.youtubeapi.ui.playlist_video_screen
 
 import android.content.Intent
 import android.util.Log
@@ -6,19 +6,18 @@ import android.view.LayoutInflater
 import android.view.View
 import android.widget.Toast
 import androidx.core.view.isVisible
-import androidx.lifecycle.ViewModelProvider
 import com.example.youtubeapi.core.network.result.Status
 import com.example.youtubeapi.core.ui.BaseActivity
 import com.example.youtubeapi.data.remote.models.Item
 import com.example.youtubeapi.databinding.PlaylistVideoActivityBinding
-import com.example.youtubeapi.ui.playlistScreen.PlaylistActivity
-import com.example.youtubeapi.ui.videoPlayer.VideoPlayerActivity
+import com.example.youtubeapi.ui.playlist_screen.PlaylistActivity
+import com.example.youtubeapi.ui.video_player.VideoPlayerActivity
 import com.example.youtubeapi.utils.CheckConnectNetwork
+import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class PlaylistVideoActivity : BaseActivity<PlaylistVideoViewModel, PlaylistVideoActivityBinding>() {
     private var playlistId: String? = null
-    override val viewModel:PlaylistVideoViewModel
-        get() = ViewModelProvider(this)[PlaylistVideoViewModel::class.java]
+    override val viewModel:PlaylistVideoViewModel by viewModel()
 
     override fun inflateViewBinding(inflater: LayoutInflater): PlaylistVideoActivityBinding {
         return PlaylistVideoActivityBinding.inflate(inflater)
@@ -31,12 +30,6 @@ class PlaylistVideoActivity : BaseActivity<PlaylistVideoViewModel, PlaylistVideo
         binding.playlistDescription.text = intent.getStringExtra(PlaylistActivity.THIRD_KEY).toString()
 
         initVM()
-    }
-
-    override fun initViewModel() {
-        super.initViewModel()
-
-
     }
 
     private fun initVM() {
@@ -72,6 +65,7 @@ class PlaylistVideoActivity : BaseActivity<PlaylistVideoViewModel, PlaylistVideo
     private fun onItemClick(videoId: String?, videoTitle: String?, videoDesc: String?) {
         Intent(this, VideoPlayerActivity::class.java).apply {
             putExtra(idPdaVa, videoId)
+            Log.e("ololo",videoId.toString())
             putExtra(titlePdaVa, videoTitle)
             putExtra(descPdaVa, videoDesc)
 

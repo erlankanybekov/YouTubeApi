@@ -23,4 +23,12 @@ interface ApiService {
         @Query("key") apiKey: String,
         @Query("maxResults") maxResult: Int
     ): Call<Item>
+
+    @GET("videos")
+    fun getVideos(
+        @Query("part") part: String,
+        @Query("key") apiKey: String,
+        @Query("maxResults") maxResult: Int,
+        @Query("id")id:String
+    ): Call<Item>
 }

@@ -1,4 +1,4 @@
-package com.example.youtubeapi.ui.playlistScreen
+package com.example.youtubeapi.ui.playlist_screen
 
 
 import android.content.Intent
@@ -12,14 +12,16 @@ import com.example.youtubeapi.data.local.Prefs
 import com.example.youtubeapi.databinding.PlaylistActivityBinding
 
 import com.example.youtubeapi.data.remote.models.Item
-import com.example.youtubeapi.ui.playlistVideoScreen.PlaylistVideoActivity
+import com.example.youtubeapi.ui.playlist_video_screen.PlaylistVideoActivity
 import com.example.youtubeapi.utils.CheckConnectNetwork
+import org.koin.android.ext.android.inject
+import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class PlaylistActivity : BaseActivity<PlaylistViewModel, PlaylistActivityBinding>() {
-     override val viewModel: PlaylistViewModel
-         get() = ViewModelProvider(this)[PlaylistViewModel::class.java]
+     override val viewModel: PlaylistViewModel by viewModel()
 
-    private val prefs:Prefs by lazy { Prefs(this) }
+    private val prefs:Prefs by inject()
+
      override fun inflateViewBinding(inflater: LayoutInflater): PlaylistActivityBinding {
          return PlaylistActivityBinding.inflate(layoutInflater)
      }
