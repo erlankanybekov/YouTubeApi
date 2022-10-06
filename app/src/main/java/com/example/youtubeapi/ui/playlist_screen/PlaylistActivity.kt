@@ -46,6 +46,9 @@ class PlaylistActivity : BaseActivity<PlaylistViewModel, PlaylistActivityBinding
     }
 
     override fun initViewModel() {
+        viewModel.loading.observe(this){
+            binding.progressbar.isVisible = it
+        }
          super.initViewModel()
          viewModel.getPlaylists().observe(this,{
              when(it.status){
@@ -54,9 +57,12 @@ class PlaylistActivity : BaseActivity<PlaylistViewModel, PlaylistActivityBinding
                      binding.progressbar.isVisible = false}
                  }
                  Status.ERROR->{Toast.makeText(this,it.message,Toast.LENGTH_SHORT).show()
-                     binding.progressbar.isVisible = false}
+                     viewModel.loading.postValue(false)
+                 }
 
-                 Status.LOADING->{binding.progressbar.isVisible = true}
+                 Status.LOADING->{
+                     viewModel.loading.postValue(true)
+                 }
              }
 
          })

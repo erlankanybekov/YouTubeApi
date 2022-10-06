@@ -8,8 +8,8 @@ data class Resource<out T>(val status: Status, val data: T?, val message: String
         fun <T> error(data:T?,msg:String?,code:Int?= null):Resource<T>{
             return Resource(Status.ERROR,data,msg,code)
         }
-        fun <T> loading(data:T?):Resource<T>{
-            return Resource(Status.LOADING,data,null,null)
+        fun <T> loading():Resource<T>{
+            return Resource(Status.LOADING,null,null,null)
         }
     }
 }

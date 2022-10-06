@@ -13,7 +13,6 @@ import com.example.youtubeapi.databinding.PlaylistVideoActivityBinding
 import com.example.youtubeapi.ui.playlist_screen.PlaylistActivity
 import com.example.youtubeapi.ui.video_player.VideoPlayerActivity
 import com.example.youtubeapi.utils.CheckConnectNetwork
-import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class PlaylistVideoActivity : BaseActivity<PlaylistVideoViewModel, PlaylistVideoActivityBinding>() {
     private var playlistId: String? = null

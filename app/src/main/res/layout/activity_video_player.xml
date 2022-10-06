@@ -6,11 +6,6 @@
     android:layout_height="match_parent"
     tools:context=".ui.video_player.VideoPlayerActivity">
 
-    <include
-        android:id="@+id/no_inet"
-        android:visibility="gone"
-        layout="@layout/no_inet_connection"/>
-
     <ProgressBar
         android:id="@+id/progress_bar"
         android:layout_width="wrap_content"
@@ -121,7 +116,7 @@
                         android:id="@+id/video_title"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:fontFamily="@font/fjalla_one"
+                        android:fontFamily="@font/bai_jamjuree_bold"
                         android:text="@string/title_example"
                         android:textSize="@dimen/twenty_four_sp"
                         app:layout_constraintStart_toStartOf="parent"
@@ -152,7 +147,7 @@
                         android:layout_marginTop="@dimen/page_margin"
                         android:text="@string/playlist_description_example"
                         android:textSize="@dimen/medium_marginSp"
-                        android:fontFamily="@font/fjalla_one"
+                        android:fontFamily="@font/modern_antiqua"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintTop_toBottomOf="@id/downloadButton" />
 
@@ -165,6 +160,9 @@
 
     </LinearLayout>
 
-
+    <include
+        android:id="@+id/no_inet"
+        android:visibility="gone"
+        layout="@layout/no_inet_connection"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

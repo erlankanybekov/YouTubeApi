@@ -8,7 +8,7 @@ import android.net.NetworkRequest
 
 import androidx.lifecycle.LiveData
 
-class CheckConnectNetwork (private val context: Context) :
+class CheckConnectNetwork (context: Context) :
     LiveData<Boolean>(){
 
     private val connectivityManager:ConnectivityManager = context.getSystemService(Context.CONNECTIVITY_SERVICE)as ConnectivityManager
@@ -25,9 +25,7 @@ class CheckConnectNetwork (private val context: Context) :
             super.onLost(network)
             postValue(false)
         }
-
     }
-
     override fun onActive() {
         super.onActive()
         val builder = NetworkRequest.Builder()

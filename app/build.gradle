@@ -66,7 +66,7 @@ dependencies {
 
     //Exo player
     implementation 'com.google.android.exoplayer:exoplayer:2.18.1'
-//Koin
+    //Koin
     def koin_version = "2.2.3"
     implementation "io.insert-koin:koin-android:$koin_version"
     implementation "io.insert-koin:koin-androidx-scope:$koin_version"
@@ -74,8 +74,11 @@ dependencies {
     implementation "io.insert-koin:koin-androidx-fragment:$koin_version"
 
     //Youtube
-    implementation 'com.github.HaarigerHarald:android-youtubeExtractor:2.1.0'
+    implementation 'com.github.HaarigerHarald:android-youtubeExtractor:master-SNAPSHOT'
 
-//multiDex
+    //multiDex
     implementation 'androidx.multidex:multidex:2.0.1'
+    
+    //coroutine
+    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.6.1'
 }

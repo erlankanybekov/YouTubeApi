@@ -11,7 +11,5 @@ class PlaylistVideoViewModel(private val repository: Repository): BaseViewModel(
     fun getPlaylistItems(playlistId: String):LiveData<Resource<Item>>{
         return repository.getPlaylistItems(playlistId)
     }
-    fun getVideos(id: String):LiveData<Resource<Item>>{
-        return repository.getVideos(id)
-    }
+
 }
